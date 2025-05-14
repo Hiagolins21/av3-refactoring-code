@@ -60,12 +60,22 @@ python main.py
 
 ## Estrutura do projeto
 
-O projeto é composto por dois arquivos principais:
+O projeto é composto por:
 
 - `main.py`: Contém o código do servidor em Python que gerencia os dados
-- `index.html`: Contém a interface do usuário com HTML, CSS e JavaScript
+- `templates/index.html`: Contém a interface do usuário com HTML, CSS e JavaScript
+- `pessoas.txt`: Arquivo onde os dados são salvos (criado automaticamente)
 
-Os dados são salvos em um arquivo chamado `pessoas.txt` que é criado automaticamente quando o programa é executado pela primeira vez.
+> **Importante**: O arquivo HTML deve estar dentro da pasta `templates` para que o Flask possa encontrá-lo.
+
+## Resolução de problemas
+
+### O sistema mostra erro "Template not found"
+
+Se você receber um erro indicando que o template não foi encontrado, verifique:
+
+1. Se o arquivo `index.html` está dentro da pasta `templates`
+2. Se a pasta `templates` está no mesmo diretório que o arquivo `main.py`
 
 ## Observações
 
