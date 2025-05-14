@@ -134,3 +134,33 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Arquivos de cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+env/
+ENV/
+
+# Arquivos de dados
+cadastro_pessoas_v1.0.0/pessoas.txt
+cadastro_pessoas_v2.0.0/data/
+
+# Logs e arquivos temporários
+*.log
+.DS_Store
+Thumbs.db
+
+# Arquivos específicos da IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Distribuição / empacotamento
+dist/
+build/
+*.egg-info/
