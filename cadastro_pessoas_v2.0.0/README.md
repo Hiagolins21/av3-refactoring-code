@@ -51,7 +51,7 @@ crud_v2.0.0/
 
 ```bash
 git clone https://github.com/caiquemiranda/av3-refactoring-code
-cd crud_v2.0.0
+cd cadastro_pessoas_v2.0.0
 ```
 
 ### 2. Configuração do ambiente Python
