@@ -1,6 +1,6 @@
 # Projeto de Refatoração - Sistema de Cadastro de Pessoas
 
-Este repositório contém duas versões de um sistema de cadastro de pessoas, desenvolvido como parte de um exercício de refatoração. O objetivo é demonstrar a evolução de um código inicial (versão 1.0.0) para uma versão refatorada e otimizada (versão 2.0.0).
+Este repositório contém duas versões de um sistema de cadastro de pessoas, desenvolvido como parte de um exercício de refatoração. O objetivo é demonstrar a evolução de um código inicial (versão 1.0.0) para uma versão refatorada, otimizada e com maior eficiência do código (versão 2.0.0).
 
 ## Estrutura do Repositório
 
