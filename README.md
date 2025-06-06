@@ -1,108 +1,84 @@
-# Projeto de Refatoração - Sistema de Cadastro de Pessoas
+# Sistema de Cadastro de Pessoas v1.0.0
 
-Este repositório contém duas versões de um sistema de cadastro de pessoas, desenvolvido como parte de um exercício de refatoração. O objetivo é demonstrar a evolução de um código inicial (versão 1.0.0) para uma versão refatorada, otimizada e com maior eficiência no código (versão 2.0.0).
+Este é um sistema simples de cadastro de pessoas que permite adicionar, visualizar, editar e excluir registros de pessoas através de uma interface web.
 
-## Estrutura do Repositório
+## O que o sistema faz?
+
+- Cadastra pessoas com nome, idade e email
+- Mostra lista de pessoas cadastradas
+- Permite editar dados das pessoas
+- Permite excluir pessoas
+
+## Requisitos
+
+Para usar este sistema você precisa ter:
+
+- Python 3.6 ou mais recente
+- Navegador web (Chrome, Firefox, Edge, etc.)
+
+## Como instalar
+
+1. Baixe os arquivos deste projeto
+2. Abra o terminal ou prompt de comando
+3. Navegue até a pasta do projeto
+4. Instale a biblioteca Flask com o comando:
 
 ```
-/
-├── cadastro_pessoas_v1.0.0/          # Versão inicial do projeto
-│   ├── main.py                       # Backend em Python (códio monolítico)
-│   ├── templates/
-│   │   └── index.html                # Frontend com HTML, CSS e JS em um único arquivo
-│   └── README.md                     # Instruções da versão 1.0.0
-│
-├── cadastro_pessoas_v2.0.0/          # Versão refatorada do projeto
-│   ├── backend/                      # Código do servidor modularizado
-│   │   ├── __init__.py               # Inicializador do pacote Python
-│   │   ├── app.py                    # Aplicação Flask e rotas da API
-│   │   └── database.py               # Classe para gerenciamento do banco de dados
-│   ├── frontend/                     # Interface do usuário modularizada
-│   │   ├── css/
-│   │   │   └── styles.css            # Estilos separados
-│   │   ├── js/
-│   │   │   └── app.js                # JavaScript organizado em classes
-│   │   └── index.html                # HTML estruturado
-│   ├── main.py                       # Script principal
-│   ├── requirements.txt              # Dependências do projeto
-│   └── README.md                     # Documentação detalhada
-│
-├── .gitignore                        # Configurações para ignorar arquivos no Git
-└── README.md                         # Este arquivo
-```
-
-## Sobre o Projeto
-
-O Sistema de Cadastro de Pessoas é uma aplicação web para criar, visualizar, editar e excluir (CRUD) registros de pessoas. Cada pessoa possui informações como nome, idade e e-mail.
-
-### Versão 1.0.0
-
-A versão inicial representa um código de "nível iniciante" com várias características de código não otimizado:
-
-- Backend em Python usando Flask em um único arquivo
-- Frontend com HTML, CSS e JavaScript no mesmo arquivo
-- Nomes de funções e variáveis pouco descritivos (ex: `cp()`, `s()`, `lf()`)
-- Comentários excessivos e pouco úteis
-- Sem separação de responsabilidades
-- Estrutura desorganizada
-- Armazenamento de dados em arquivo de texto simples
-
-### Versão 2.0.0
-
-A versão refatorada apresenta significativas melhorias:
-
-- **Modularização**: Separação clara entre backend e frontend
-- **Organização**: Arquivos divididos por responsabilidade
-- **Nomenclatura**: Nomes claros e descritivos para funções e variáveis
-- **Estrutura de Dados**: Armazenamento em JSON com estrutura melhorada
-- **Design Moderno**: Interface responsiva usando Bootstrap 5
-- **Programação Orientada a Objetos**: Uso de classes e métodos bem definidos
-- **Tratamento de Erros**: Melhor gerenciamento de erros e exceções
-- **Experiência do Usuário**: Feedback visual, animações e mensagens informativas
-
-## Principais Refatorações
-
-| Aspecto | Versão 1.0.0 | Versão 2.0.0 |
-|---------|------------|------------|
-| Estrutura | Monolítica | Modular |
-| Arquivos | 2 arquivos com todo o código | 7+ arquivos organizados |
-| Nomes | Abreviados (ex: `s()`, `d()`) | Descritivos (ex: `savePerson()`, `deletePerson()`) |
-| Classes | Nenhuma | Múltiplas com responsabilidades bem definidas |
-| UI | Básica | Moderna e responsiva |
-| Comentários | Excessivos e redundantes | Significativos e em docstrings |
-| Dados | Arquivo texto | JSON estruturado |
-| Erros | Tratamento mínimo | Robusto com feedback |
-
-## Como Executar
-
-### Versão 1.0.0
-
-```bash
-cd cadastro_pessoas_v1.0.0
 pip install flask
+```
+
+## Como executar
+
+1. Abra o terminal ou prompt de comando
+2. Navegue até a pasta do projeto
+3. Execute o seguinte comando:
+
+```
 python main.py
 ```
 
-### Versão 2.0.0
+4. Abra seu navegador e acesse o endereço: `http://localhost:5000`
 
-```bash
-cd cadastro_pessoas_v2.0.0
-pip install -r requirements.txt
-python main.py
-```
+## Como usar
 
-Ambas as versões iniciam um servidor web na porta 5000, acessível em http://localhost:5000
+### Para adicionar uma pessoa:
 
-## Objetivo Educacional
+1. Preencha os campos Nome, Idade e Email
+2. Clique no botão "Salvar"
 
-Este projeto serve como exemplo didático de refatoração, demonstrando:
+### Para editar uma pessoa:
 
-1. Como código mal estruturado pode evoluir para código bem organizado
-2. A importância de nomear variáveis e funções adequadamente
-3. Os benefícios da modularização e separação de responsabilidades
-4. Como melhorar a experiência do usuário sem alterar a funcionalidade base
-5. Boas práticas de programação em Python e JavaScript
+1. Na lista de pessoas, clique no botão "Editar" ao lado do registro que deseja modificar
+2. Os dados serão carregados no formulário
+3. Altere os dados desejados
+4. Clique em "Atualizar"
 
-## Autor
+### Para excluir uma pessoa:
 
-Este projeto foi criado como parte de um trabalho acadêmico sobre refatoração de código.
+1. Na lista de pessoas, clique no botão "Excluir" ao lado do registro que deseja remover
+2. Confirme a exclusão
+
+## Estrutura do projeto
+
+O projeto é composto por:
+
+- `main.py`: Contém o código do servidor em Python que gerencia os dados
+- `templates/index.html`: Contém a interface do usuário com HTML, CSS e JavaScript
+- `pessoas.txt`: Arquivo onde os dados são salvos (criado automaticamente)
+
+> **Importante**: O arquivo HTML deve estar dentro da pasta `templates` para que o Flask possa encontrá-lo.
+
+## Resolução de problemas
+
+### O sistema mostra erro "Template not found"
+
+Se você receber um erro indicando que o template não foi encontrado, verifique:
+
+1. Se o arquivo `index.html` está dentro da pasta `templates`
+2. Se a pasta `templates` está no mesmo diretório que o arquivo `main.py`
+
+## Observações
+
+- Este é um projeto simples para fins educacionais
+- Os dados são armazenados localmente em um arquivo de texto
+- O sistema funciona apenas no computador onde está sendo executado 
