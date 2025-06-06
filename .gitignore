@@ -164,3 +164,7 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+
+# dados
+data/

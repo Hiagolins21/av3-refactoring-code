@@ -1,9 +1,3 @@
-/**
- * Sistema de Cadastro de Pessoas v2.0
- * Módulo JavaScript principal
- */
-
-// Classe para gerenciar a API
 class PeopleAPI {
     constructor(baseURL = '/api/pessoas') {
         this.baseURL = baseURL;
@@ -106,7 +100,7 @@ class PeopleUI {
         this.api = api;
         this.isEditing = false;
 
-        // Elementos do DOM
+        // DOM
         this.form = document.getElementById('personForm');
         this.personIdInput = document.getElementById('personId');
         this.nameInput = document.getElementById('name');
