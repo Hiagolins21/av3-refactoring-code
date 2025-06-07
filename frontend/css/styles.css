@@ -52,7 +52,55 @@ body {
     border-color: var(--danger-color);
 }
 
+/* Estilizando a tabela */
+.table {
+    margin-bottom: 0;
+}
 
+.table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Animações para mensagens */
+.alert {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botões das ações na tabela */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Animação para highlight de novo item */
+.highlight {
+    animation: highlight 2s ease;
+}
 
 @keyframes highlight {
     0% {
