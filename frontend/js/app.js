@@ -93,3 +93,87 @@ class PeopleAPI {
         }
     }
 }
+
+// Classe para gerenciar a UI
+class PeopleUI {
+    constructor(api) {
+        this.api = api;
+        this.isEditing = false;
+
+        // DOM
+        this.form = document.getElementById('personForm');
+        this.personIdInput = document.getElementById('personId');
+        this.nameInput = document.getElementById('name');
+        this.ageInput = document.getElementById('age');
+        this.emailInput = document.getElementById('email');
+        this.peopleTable = document.getElementById('peopleTable');
+        this.formTitle = document.getElementById('formTitle');
+        this.saveButton = document.getElementById('saveButton');
+        this.cancelButton = document.getElementById('cancelButton');
+        this.messageArea = document.getElementById('messageArea');
+
+        // Inicializar eventos
+        this.initEventListeners();
+
+        // Carregar pessoas ao iniciar
+        this.loadPeople();
+    }
+
+    // Configurar listeners de eventos
+    initEventListeners() {
+        // Evento de submit do formulário
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.savePerson();
+        });
+
+        // Evento de cancelar edição
+        this.cancelButton.addEventListener('click', () => {
+            this.resetForm();
+        });
+    }
+
+    // Carregar pessoas do servidor
+    async loadPeople() {
+        try {
+            const people = await this.api.getAllPeople();
+            this.renderPeopleTable(people);
+        } catch (error) {
+            this.showMessage('Erro ao carregar dados. Tente novamente mais tarde.', 'danger');
+        }
+    }
+
+    // Renderizar tabela de pessoas
+    renderPeopleTable(people) {
+        this.peopleTable.innerHTML = '';
+
+        if (people.length === 0) {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 5;
+            cell.textContent = 'Nenhuma pessoa cadastrada';
+            cell.classList.add('text-center');
+            row.appendChild(cell);
+            this.peopleTable.appendChild(row);
+            return;
+        }
+
+        people.forEach(person => {
+            const row = document.createElement('tr');
+            row.dataset.id = person.id;
+
+            // Colunas de dados
+            row.innerHTML = `
+                <td>${person.id}</td>
+                <td>${person.nome}</td>
+                <td>${person.idade}</td>
+                <td>${person.email}</td>
+                <td class="action-buttons">
+                    <button class="btn btn-primary btn-edit">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                    <button class="btn btn-danger btn-delete">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+            `;
