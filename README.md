@@ -85,6 +85,8 @@ Acesse a aplicação no navegador:
 
 ## Uso
 
+![v2](imgs/sis_v2.png)
+
 ### Cadastro de Pessoas
 
 1. Preencha os campos Nome, Idade e Email no formulário
@@ -192,8 +194,10 @@ A versão refatorada apresenta significativas melhorias:
 
 ### Versão 1.0.0
 
+![v1](imgs\sis_v1.png)
+
 ```bash
-git checkout 
+git checkout 9b95461e6635c4ddc206d186f8a0db6ba0280e77
 pip install flask
 python main.py
 ```
@@ -201,7 +205,7 @@ python main.py
 ### Versão 2.0.0
 
 ```bash
-git main
+git checkout main
 pip install -r requirements.txt
 python main.py
 ```
@@ -218,6 +222,18 @@ Este projeto serve como exemplo didático de refatoração, demonstrando:
 4. Como melhorar a experiência do usuário sem alterar a funcionalidade base
 5. Boas práticas de programação em Python e JavaScript
 
-## Autor
+---
+![v1](imgs\yt.png)
+
+[Video aqui](https://www.youtube.com/)
+
+
+
+## Equipe
+> 
+- [Caique Miranda](https://github.com/caiquemiranda)
+- [Breno Cesar](https://github.com/brncsar)
+- [Hiago Lins](https://github.com/Hiagolins21)
+- [Leonardo Prado](https://github.com/LeonardoPradoO)
 
 Este projeto foi criado como parte de um trabalho acadêmico sobre refatoração de código.
