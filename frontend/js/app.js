@@ -177,3 +177,116 @@ class PeopleUI {
                     </button>
                 </td>
             `;
+
+            // Adicionar eventos aos botões
+            const editButton = row.querySelector('.btn-edit');
+            const deleteButton = row.querySelector('.btn-delete');
+
+            editButton.addEventListener('click', () => this.editPerson(person));
+            deleteButton.addEventListener('click', () => this.confirmDeletePerson(person.id));
+
+            this.peopleTable.appendChild(row);
+        });
+    }
+
+    // Salvar pessoa (criar ou atualizar)
+    async savePerson() {
+        const personData = {
+            nome: this.nameInput.value,
+            idade: parseInt(this.ageInput.value),
+            email: this.emailInput.value
+        };
+
+        try {
+            let result;
+
+            if (this.isEditing) {
+                const id = parseInt(this.personIdInput.value);
+                result = await this.api.updatePerson(id, personData);
+                this.showMessage('Pessoa atualizada com sucesso!', 'success');
+            } else {
+                result = await this.api.createPerson(personData);
+                this.showMessage('Pessoa cadastrada com sucesso!', 'success');
+            }
+
+            this.resetForm();
+            await this.loadPeople();
+
+            // Destacar a linha adicionada/editada
+            setTimeout(() => {
+                const row = this.peopleTable.querySelector(`tr[data-id="${result.id}"]`);
+                if (row) {
+                    row.classList.add('highlight');
+                }
+            }, 100);
+
+        } catch (error) {
+            this.showMessage('Erro ao salvar dados. Verifique os campos e tente novamente.', 'danger');
+        }
+    }
+
+    // Preparar formulário para edição
+    editPerson(person) {
+        this.isEditing = true;
+        this.personIdInput.value = person.id;
+        this.nameInput.value = person.nome;
+        this.ageInput.value = person.idade;
+        this.emailInput.value = person.email;
+
+        this.formTitle.textContent = 'Editar Pessoa';
+        this.saveButton.innerHTML = '<i class="bi bi-check-circle"></i> Atualizar';
+        this.cancelButton.classList.remove('d-none');
+
+        // Rolar para o formulário
+        this.form.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Confirmar exclusão de pessoa
+    confirmDeletePerson(id) {
+        if (confirm('Tem certeza que deseja excluir esta pessoa?')) {
+            this.deletePerson(id);
+        }
+    }
+
+    // Excluir pessoa
+    async deletePerson(id) {
+        try {
+            await this.api.deletePerson(id);
+            this.showMessage('Pessoa excluída com sucesso!', 'success');
+            await this.loadPeople();
+        } catch (error) {
+            this.showMessage('Erro ao excluir pessoa. Tente novamente mais tarde.', 'danger');
+        }
+    }
+
+    // Resetar formulário
+    resetForm() {
+        this.isEditing = false;
+        this.form.reset();
+        this.personIdInput.value = '';
+
+        this.formTitle.textContent = 'Adicionar Pessoa';
+        this.saveButton.innerHTML = '<i class="bi bi-save"></i> Salvar';
+        this.cancelButton.classList.add('d-none');
+    }
+
+    // Exibir mensagem
+    showMessage(message, type) {
+        this.messageArea.textContent = message;
+        this.messageArea.className = `alert alert-${type}`;
+
+        // Mostrar a mensagem
+        this.messageArea.classList.remove('d-none');
+
+        // Esconder depois de 3 segundos
+        setTimeout(() => {
+            this.messageArea.classList.add('d-none');
+        }, 3000);
+    }
+}
+
+// Inicializar a aplicação quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
+    const api = new PeopleAPI();
+    const ui = new PeopleUI(api);
+});
