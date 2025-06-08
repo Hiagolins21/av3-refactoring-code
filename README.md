@@ -2,8 +2,6 @@
 
 Um sistema moderno de cadastro de pessoas, desenvolvido como uma aplicação web utilizando Python (Flask) no backend e HTML, CSS e JavaScript no frontend. Esta é uma versão refatorada e melhorada do projeto original.
 
-![Sistema de Cadastro de Pessoas](https://via.placeholder.com/800x400?text=Sistema+de+Cadastro+de+Pessoas+v2.0.0)
-
 ## Características
 
 - Interface moderna e responsiva usando Bootstrap 5
@@ -17,7 +15,7 @@ Um sistema moderno de cadastro de pessoas, desenvolvido como uma aplicação web
 ## Estrutura do Projeto
 
 ```
-crud_v2.0.0/
+v2.0.0/
 │
 ├── backend/              # Código do servidor
 │   ├── __init__.py       # Marca o diretório como um pacote Python
@@ -51,7 +49,6 @@ crud_v2.0.0/
 
 ```bash
 git clone https://github.com/caiquemiranda/av3-refactoring-code
-cd cadastro_pessoas_v2.0.0
 ```
 
 ### 2. Configuração do ambiente Python
@@ -148,34 +145,6 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para ma
 
 Este repositório contém duas versões de um sistema de cadastro de pessoas, desenvolvido como parte de um exercício de refatoração. O objetivo é demonstrar a evolução de um código inicial (versão 1.0.0) para uma versão refatorada e otimizada (versão 2.0.0).
 
-## Estrutura do Repositório
-
-```
-/
-├── cadastro_pessoas_v1.0.0/          # Versão inicial do projeto
-│   ├── main.py                       # Backend em Python (códio monolítico)
-│   ├── templates/
-│   │   └── index.html                # Frontend com HTML, CSS e JS em um único arquivo
-│   └── README.md                     # Instruções da versão 1.0.0
-│
-├── cadastro_pessoas_v2.0.0/          # Versão refatorada do projeto
-│   ├── backend/                      # Código do servidor modularizado
-│   │   ├── __init__.py               # Inicializador do pacote Python
-│   │   ├── app.py                    # Aplicação Flask e rotas da API
-│   │   └── database.py               # Classe para gerenciamento do banco de dados
-│   ├── frontend/                     # Interface do usuário modularizada
-│   │   ├── css/
-│   │   │   └── styles.css            # Estilos separados
-│   │   ├── js/
-│   │   │   └── app.js                # JavaScript organizado em classes
-│   │   └── index.html                # HTML estruturado
-│   ├── main.py                       # Script principal
-│   ├── requirements.txt              # Dependências do projeto
-│   └── README.md                     # Documentação detalhada
-│
-├── .gitignore                        # Configurações para ignorar arquivos no Git
-└── README.md                         # Este arquivo
-```
 
 ## Sobre o Projeto
 
@@ -224,7 +193,7 @@ A versão refatorada apresenta significativas melhorias:
 ### Versão 1.0.0
 
 ```bash
-cd cadastro_pessoas_v1.0.0
+git checkout 
 pip install flask
 python main.py
 ```
@@ -232,7 +201,7 @@ python main.py
 ### Versão 2.0.0
 
 ```bash
-cd cadastro_pessoas_v2.0.0
+git main
 pip install -r requirements.txt
 python main.py
 ```
