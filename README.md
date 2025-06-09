@@ -194,7 +194,7 @@ A versão refatorada apresenta significativas melhorias:
 
 ### Versão 1.0.0
 
-![v1](imgs\sis_v1.png)
+![v1](imgs/sis_v1.png)
 
 ```bash
 git checkout 9b95461e6635c4ddc206d186f8a0db6ba0280e77
@@ -223,7 +223,7 @@ Este projeto serve como exemplo didático de refatoração, demonstrando:
 5. Boas práticas de programação em Python e JavaScript
 
 ---
-![v1](imgs\yt.png)
+![v1](imgs/yt.png)
 
 [Video aqui](https://youtu.be/HCZ6ScyPrNU)
 
