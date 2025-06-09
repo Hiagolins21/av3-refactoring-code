@@ -225,7 +225,7 @@ Este projeto serve como exemplo didático de refatoração, demonstrando:
 ---
 ![v1](imgs\yt.png)
 
-[Video aqui](https://www.youtube.com/)
+[Video aqui](https://youtu.be/HCZ6ScyPrNU)
 
 
 
